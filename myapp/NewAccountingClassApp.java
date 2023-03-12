@@ -1,11 +1,11 @@
 package myapp;
 
 class Accounting {
-	public static double valueOfSupply;
-	public static double vatRate;
-	public static double expenseRate;
+	public double valueOfSupply;
+	public double vatRate;
+	public double expenseRate;
 
-	public static void print() {
+	public void print() {
 		System.out.println("Value of Supply: " + valueOfSupply);
 		System.out.println("VAT: " + getVAT());
 		System.out.println("Total: " + getTotal());
@@ -16,41 +16,51 @@ class Accounting {
 		System.out.println("Dividend 3: " + getDividend3());
 	}
 	
-	public static double getDividend1() {
+	public double getDividend1() {
 		return getIncome() * 0.5;
 	}
 	
-	public static double getDividend2() {
+	public double getDividend2() {
 		return getIncome() * 0.3;
 	}
 	
-	public static double getDividend3() {
+	public double getDividend3() {
 		return getIncome() * 0.2;
 	}
 	
-	public static double getIncome() {
+	public double getIncome() {
 		return valueOfSupply - getExpense();
 	}
 	
-	public static double getExpense() {
+	public double getExpense() {
 		return valueOfSupply * expenseRate;
 	}
 	
-	public static double getTotal() {
+	public double getTotal() {
 		return valueOfSupply * getVAT();
 	}
 	
-	public static double getVAT() {
+	public double getVAT() {
 		return valueOfSupply * vatRate;
 	}
 }
 
 public class NewAccountingClassApp {
 	public static void main(String[] args) {
-		Accounting.valueOfSupply = 10000.0;
-		Accounting.vatRate = 0.1;
-		Accounting.expenseRate = 0.3;
+		Accounting a1 = new Accounting();
 		
-		Accounting.print();
+		a1.valueOfSupply = 10000.0;
+		a1.vatRate = 0.1;
+		a1.expenseRate = 0.3;
+		
+		a1.print();
+		
+		Accounting a2 = new Accounting();
+		
+		a2.valueOfSupply = 10000.0;
+		a2.vatRate = 0.1;
+		a2.expenseRate = 0.3;
+		
+		a2.print();
 	}
 }
